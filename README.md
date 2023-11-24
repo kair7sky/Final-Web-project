@@ -15,6 +15,6 @@ This project's success will not only benefit "FitLife" but also serve as a refer
 
 Presentation : [WEB presentation.pdf](https://github.com/kair7sky/Final-Web-project/files/13456579/WEB.presentation.pdf)
 WireFrame: [FitLife WireFrame.pdf](https://github.com/kair7sky/Final-Web-project/files/13456598/FitLife.WireFrame.pdf)
-
+Live site: https://kair7sky.github.io/Final-Web-project/
 
 
