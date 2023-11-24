@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            color: #ff8c00;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #ff8c00;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e07d00;
+        }
+
+        .switch-form {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .switch-form a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .switch-form a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style for success message */
+        .successMessage {
+            display: none;
+            border: 2px solid #4CAF50;
+            padding: 10px;
+            color: #4CAF50;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    
+<form id="registerForm" method="post" action="/register">
+    <h2>Register</h2>
+    <label for="regUsername">Username:</label>
+    <input type="text" id="regUsername" name="regUsername" required>
+
+    <label for="regPassword">Password:</label>
+    <input type="password" id="regPassword" name="regPassword" required>
+
+    <button type="submit"><a href="index.html">Register</a></button> 
+
+    <!-- Success message div within the register form -->
+    <div class="successMessage" id="registerSuccessMessage">
+        <!-- Success message will appear here -->
+    </div>
+
+    <div class="switch-form">
+        <p>Already have an account? <a href="#" onclick="switchForm('loginForm')">Login</a></p>
+    </div>
+</form>
+
+<form id="loginForm" style="display: none;" method="post" action="/login">
+    <h2>Login</h2>
+    <label for="loginUsername">Username:</label>
+    <input type="text" id="loginUsername" name="loginUsername" required>
+
+    <label for="loginPassword">Password:</label>
+    <input type="password" id="loginPassword" name="loginPassword" required>
+
+    <button type="submit"><a href="index.html">Login</a></button>
+
+    <!-- Success message div within the login form -->
+    <div class="successMessage" id="loginSuccessMessage">
+        <!-- Success message will appear here -->
+    </div>
+
+    <div class="switch-form">
+        <p>Don't have an account? <a href="#" onclick="switchForm('registerForm')">Register</a></p>
+    </div>
+</form>
+
+<script>
+    function switchForm(formId) {
+        document.getElementById('registerForm').style.display = formId === 'registerForm' ? 'block' : 'none';
+        document.getElementById('loginForm').style.display = formId === 'loginForm' ? 'block' : 'none';
+
+        // Hide the success message when switching forms
+        document.getElementById('registerSuccessMessage').style.display = 'none';
+        document.getElementById('loginSuccessMessage').style.display = 'none';
+    }
+
+    function register() {
+        var username = document.getElementById('regUsername').value;
+        var password = document.getElementById('regPassword').value;
+
+        // Implement registration logic here (e.g., send data to the server)
+        console.log('Registration:', username, password);
+
+        // Display success message
+        displaySuccessMessage('registerSuccessMessage', 'User Successfully registered!');
+    }
+
+    function login() {
+        var username = document.getElementById('loginUsername').value;
+        var password = document.getElementById('loginPassword').value;
+
+        // Implement login logic here (e.g., send data to the server)
+        console.log('Login:', username, password);
+
+        // Display success message
+        displaySuccessMessage('loginSuccessMessage', 'Successfully logged in!');
+    }
+
+    // Function to display success message
+    function displaySuccessMessage(messageId, message) {
+        var successMessage = document.getElementById(messageId);
+        successMessage.innerHTML = message;
+        successMessage.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>

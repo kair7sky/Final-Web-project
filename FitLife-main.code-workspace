@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "FitLife-main",
+			"path": "../FitLife-main"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "templates"
+	}
+}
